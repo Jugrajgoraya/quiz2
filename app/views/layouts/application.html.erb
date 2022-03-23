@@ -11,6 +11,27 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class= "container-fluid">
+      <div class="navbar-brand ">
+        <img src="https://image.shutterstock.com/z/stock-vector-brain-logo-silhouette-design-vector-template-think-idea-concept-brain-storm-power-thinking-brain-662421157.jpg" alt="" id="logo">
+        <a class="navbar-brand fs-2" href="<%= root_path%>"> Idea Factory</a>
+      </div>
+        <button class="navbar-toggler navbar-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class ="collapse navbar-collapse justify-content-md-end" id="navbarNav">
+          <ul class="navbar-nav d-flex flex-row">
+            <li class="nav-item p-2">
+              <a class="nav-link active btn" id="button" aria-current="page" href="#">Sign In</a>
+            </li>
+            <li class="nav-item p-2">
+              <a class="nav-link active btn"id="button" aria-current="page" href="<%= new_idea_path %>">New Idea</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>

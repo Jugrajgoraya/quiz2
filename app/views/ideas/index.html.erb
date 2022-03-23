@@ -1,0 +1,8 @@
+<div class="container-fluid">
+    <% @ideas.each do |idea|%>
+    <div class="card-body border-top border-3 border-dark">
+        <a href="<%= idea_path(idea)%>" class="card-title text-decoration-none text-reset fw-bold"><%= idea.title%></a>
+        <p class="card-text"><%= idea.description%></p>
+    </div>
+    <% end %>
+</div>
