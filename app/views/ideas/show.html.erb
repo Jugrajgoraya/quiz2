@@ -1,0 +1,33 @@
+<div class= "card">
+    <div class="card-body">
+        <h5 class="card-title border-top"> <%= @idea.title%></h5>
+        <p class="card-text"><%= @idea.description%></p>
+    </div>
+    <div class="d-flex flex-row justify-content-end">
+    <div class= "p-2">
+        <a href="<%= edit_idea_path(@idea)%>" class="btn p-2" id="button">Edit</a>
+    </div>
+    <div class="p-2">
+        <%= button_to "Delete", idea_path(@idea), method: :delete, class: "btn p-2", id:"button" %>
+    </div>
+    </div>
+</div>
+<%=form_with model:[@idea,@review], class:"" do |f|%>
+    <div class="m-3">
+        <%= f.label :body, class:"form-label"%>
+        <%= f.text_area :body, class:"form-control"%>
+    </div>
+    <div class="m-3">
+        <%= f.submit class:"btn", id:"button"%>
+    </div>
+<% end %>
+<br>
+<div class="m-3">
+<h4>Riviews</h2>
+    <% @reviews.each do |review|%>
+    <div class="card-body">
+        <p class="card-text"><%= review.body%></p>
+        <%= button_to 'Delete', idea_review_path(@idea.id,review.id), method: :delete%>
+    </div>
+    <% end %>
+</div>

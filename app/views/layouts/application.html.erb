@@ -11,6 +11,44 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class= "container-fluid">
+      <div class="navbar-brand ">
+        <img src="https://image.shutterstock.com/z/stock-vector-brain-logo-silhouette-design-vector-template-think-idea-concept-brain-storm-power-thinking-brain-662421157.jpg" alt="" id="logo">
+        <a class="navbar-brand fs-2 fw-bold" href="<%= root_path%>"> Idea Factory</a>
+      </div>
+        <button class="navbar-toggler navbar-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class ="collapse navbar-collapse justify-content-md-end" id="navbarNav">
+          <ul class="navbar-nav d-flex flex-row">
+            <% if (user_signed_in?)%>
+            <li class="nav-item p-2">
+              <a class="nav-link active fw-bold fs-4" href="<%= edit_user_path(current_user)%>">Hello <%= current_user.name%></a>
+            </li>
+            <li class="nav-item p-2">
+              <%= button_to "Log out", sessions_path, method: :delete, class:"nav-link active btn",id:"button" %>
+            </li>
+            <% else%>
+            <li class="nav-item p-2">
+              <a class="nav-link active btn" id="button" href="<%= new_user_path%>">Sign UP</a>
+            </li>
+            <li class="nav-item p-2">
+              <a class="nav-link active btn" id="button" href="<%= new_sessions_path%>">Sign In</a>
+            </li>
+            <% end %>
+            <li class="nav-item p-2">
+              <a class="nav-link active btn"id="button" aria-current="page" href="<%= new_idea_path %>">New Idea</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <% flash.each do |type, message| %>
+    <div class="m-2 p-3 bg-warning text-dark ">
+      <%= type + "-------" + message %>
+    </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

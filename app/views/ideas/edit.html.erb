@@ -1,0 +1,13 @@
+<%=form_with model: @idea, url: idea_path(@idea), class:"m-3" do |f|%>
+    <div class="mb-3">
+        <%= f.label :title, class: "form-label"%>
+        <%= f.text_field :title, class: "form-control"%>
+    </div>
+    <div class="mb-3">
+        <%= f.label :description, class: "form-label"%>
+        <%= f.text_area :description, class: "form-control"%>
+    </div>
+    <div class="d-grid justify-content-md-end">
+        <%= f.submit class:"btn", id: "button"%>
+    </div>
+<% end %>
