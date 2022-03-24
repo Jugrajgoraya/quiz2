@@ -3,5 +3,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "ideas#index"
-  resources :ideas
+  resources :ideas do
+    resources :reviews, only: [:create, :destroy]
+    resources :likes, shallow: true, only: [:create, :destroy]
+  end
+  resources :users, only: [:new,:create,:edit,:update]
+  resource :sessions, only: [:new,:create,:destroy]
 end
